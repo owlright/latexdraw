@@ -1,0 +1,28 @@
+\documentclass[border=5pt]{standalone}
+\usepackage{tabularray}
+\usepackage{xcolor}
+
+
+\begin{document}
+
+\begin{tblr}{
+    vlines, hlines,
+        columns = {c},
+        cell{1-2, 4}{1-Z} = {azure9},
+        cell{3}{3-8} = {red7},
+    }
+    \SetCell[c=9]{}{bitmap0 (32bits)} \\
+    \SetCell[c=9]{}{bitmap1 (32bits)} \\
+    {fanIndegree0 \\(5 bits)} &
+    {fanIndegree1 \\(5 bits)} &
+    {ovrflow      \\(1 bit)} &
+    {resend       \\(1 bit)} &
+    {collsion     \\(1 bit)} &
+    {ecn          \\(1 bit)} &
+    {edgeSwitchId \\(1 bit)} &
+    {isAck        \\(1 bit)} &
+    {aggregatorId \\(16 bits)}\\
+    \SetCell[c=9]{}{jobIDAndSequenceNumber (32 bits)} \\
+\end{tblr}
+
+\end{document}

@@ -1,0 +1,53 @@
+% \documentclass[border=10pt]{standalone}
+% \usepackage{tabularray}
+% \usepackage{xcolor}
+
+
+% \begin{document}
+
+% \begin{tblr}{
+%         colspec = {|c|c|c|c|c|c|c|c|c|},
+%         row{1} = {}
+%     }
+%     \SetCell[c=7]{}{bitmap0 (32bits)}                 \\
+%     \hline
+%     \SetCell[]{}{fanIndegree0 \\(5 bits)} &
+%     \SetCell[]{}{fanIndegree0 \\(5 bits)}&
+%     \SetCell[]{}{fanIndegree0 \\(5 bits)}&
+%     \SetCell[]{}{fanIndegree0 \\(5 bits)}&
+%     \SetCell[]{}{fanIndegree0                         \\(5 bits)}&
+%     \SetCell[]{}{fanIndegree0                         \\(5 bits)}&
+%     \SetCell[]{}{fanIndegree0                         \\(5 bits)}\\
+%     \hline
+%     \SetCell[c=7]{}{jobIDAndSequenceNumber (32 bits)} \\
+%     \hline
+% \end{tblr}
+
+% \end{document}
+\documentclass[border=5]{standalone}
+\usepackage{tabularray}
+\usepackage[svgnames,x11names,dvipsnames]{xcolor}
+
+\begin{document}
+
+\begin{tblr}{
+        row{1} = {font=\bfseries},
+        rowspec = {Q|Q|Q|},
+        columns = {c},
+        hlines = {1pt, white},
+        vlines = {2-Z}{2pt, white},
+        cell{2-Z}{2} = {green7},
+        cell{2-Z}{3} = {purple9},
+        cell{2-Z}{4} = {red7},
+        cell{2-Z}{5} = {green9},
+        cell{2-Z}{6} = {orange},
+        cell{2-Z}{7} = {blue9},
+    }
+    index & {bitmap \\(32 bits)}   & {counter \\ (32 bits)}  & {ecn \\(1 bit)}  &  {JobID \& seqNumber \\(32 bits)} & {timestamp \\(32 bits)} & {aggregator value field\\(248 bytes)} \\
+    1 & 00101..1 & 6  & 0 & 1~2493 & \ldots & \ldots \\
+    2 & 11001..0 & 4  & 1 & 2~3490 & \ldots &  \ldots \\
+    {\vdots} & \SetCell[r=1,c=6]{gray9}{\vdots} \\
+    {N} & \SetCell[r=1,c=6]{gray9}{\ldots}
+\end{tblr}
+
+\end{document}

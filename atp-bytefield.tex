@@ -1,0 +1,29 @@
+\documentclass[]{standalone}
+
+\usepackage{xcolor} % \definecolor
+\usepackage{graphicx} % \rotatebox
+\usepackage{bytefield}
+% \usepackage[]{showframe}
+\begin{document}
+\begin{minipage}{\textwidth}
+    \begin{bytefield}[bitheight=\widthof{"OF"}, bitwidth=1em]{32}
+        \bitheader{0-31} \\
+        \wordbox[tlr]{1}{bitmap0} \\
+        \wordbox[tlr]{1}{bitmap1} \\
+
+        \bitheader{0,4,5,9,10-15} \\
+        \bitbox{5}{\small fanInd0} &
+        \bitbox{5}{\small fanInd1}&
+        \bitbox{1}{\rotatebox{90}{\small OF}} &
+        \bitbox{1}{\rotatebox{90}{\small RS}} &
+        \bitbox{1}{\rotatebox{90}{\small COL}} &
+        \bitbox{1}{\rotatebox{90}{\small ECN}} &
+        \bitbox{1}{\rotatebox{90}{\small SW}} &
+        \bitbox{1}{\rotatebox{90}{\small ACK}}&
+
+        \bitbox{16}{aggregatorIndex} \\
+        \bitbox{16}{jobID} & \bitbox{16}{seqNumber}
+    \end{bytefield}
+\end{minipage}
+world
+\end{document}
